@@ -1,0 +1,40 @@
+---
+
+- name: Install base package
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - git
+    - vim
+    - htop
+    - sudo
+    - gnupg2
+    - python3-pip
+    - gcc
+    - make
+    - autoconf
+    - autoconf-archive
+    - autogen
+    - automake
+    - pkg-config
+    - lm-sensors
+    - dstat
+    - sysstat
+    - mtr
+    - ncdu
+    - tcpdump
+    - python-dev
+    - net-tools
+    - locate
+    - net-tools
+    - man
+    - bash-completion
+    - dnsutils
+    - iftop
+
+- name: Upgrade python-pip
+  command: "pip install --upgrade pip"

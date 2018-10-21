@@ -29,3 +29,5 @@
       regexp: '^%sudo ALL\='
       line: '%sudo ALL=(ALL) NOPASSWD:ALL'
       validate: 'visudo -cf %s'
+
+  - include: base-packages.yml
