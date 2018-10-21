@@ -1,9 +1,9 @@
 ansible_user = ansible
+sudo_user = gzsierra
 ansible_inventory = my-inventory
-ansible_password = password
 
 deploy-init:
-	ansible-playbook -i playbooks/$(ansible_inventory) playbooks/common.yml -u $(ansible_user) -p $(ansible_password)
+	ansible-playbook -i playbooks/$(ansible_inventory) playbooks/common.yml --ask-become-pass --ask-pass -u $(sudo_user)
 
 deploy-common:
 	ansible-playbook -i playbooks/$(ansible_inventory) playbooks/common.yml -u $(ansible_user)
