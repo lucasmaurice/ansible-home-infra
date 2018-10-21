@@ -1,0 +1,7 @@
+---
+- hosts: park
+  become: yes
+  roles:
+    - common
+    - linux-motd
+    - update

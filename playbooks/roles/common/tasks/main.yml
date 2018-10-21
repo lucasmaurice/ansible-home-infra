@@ -1,0 +1,31 @@
+---
+  - name: Add user to sudo group.
+    user:
+      name: gzsierra
+      state: present
+      comment: "Standard user with sudo for gzsierra"
+      groups: sudo
+      append: yes
+
+  - name: Add user to sudo group.
+    user:
+      name: ansible
+      state: present
+      comment: "User for ansible automation"
+      groups: sudo
+      append: yes
+
+  - name: Add user.
+    authorized_key:
+      user: gzsierra
+      key: "{{ item }}"
+    with_items:
+      - https://github.com/gzsierra.keys
+
+  - name: Allow privilege escalation without password.
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%sudo ALL\='
+      line: '%sudo ALL=(ALL) NOPASSWD:ALL'
+      validate: 'visudo -cf %s'

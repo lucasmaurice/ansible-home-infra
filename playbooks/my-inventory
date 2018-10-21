@@ -1,0 +1,9 @@
+[park]
+192.168.1.7 hostname=host7
+192.168.1.8 hostname=host8
+192.168.1.9 hostname=host9
+
+[test]
+192.168.1.2 hostname=host2
+192.168.1.3 hostname=host3
+192.168.1.4 hostname=host4

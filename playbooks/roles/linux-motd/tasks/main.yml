@@ -1,0 +1,30 @@
+---
+
+- name: Install the prerequisite packages for the MOTD scripts.
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - lsb-release
+    - figlet
+
+- name: Create the destination folder.
+  file:
+    state: directory
+    path: /etc/update-motd.d/
+
+- name: Add fonts to Debian.
+  get_url:
+    url: http://www.figlet.org/fonts/cosmic.flf
+    dest: /opt/
+    mode: 0644
+
+- name: Create the correct template files.
+  template:
+    src: "{{ item }}"
+    dest: /etc/update-motd.d/
+    mode: "a=x"
+  with_items:
+    - 00-header
+    - 10-sysinfo
+    - 90-footer
