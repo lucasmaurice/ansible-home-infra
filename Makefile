@@ -1,5 +1,5 @@
 ansible_user = ansible
-sudo_user = gzsierra
+sudo_user = debian
 ansible_inventory = my-inventory
 
 deploy-init:
@@ -10,3 +10,6 @@ deploy-common:
 
 deploy-update:
 	ansible-playbook -i playbooks/$(ansible_inventory) playbooks/update.yml -u $(ansible_user)
+
+ping:
+	ansible-playbook -i playbooks/$(ansible_inventory) playbooks/ping.yml -u $(ansible_user)
