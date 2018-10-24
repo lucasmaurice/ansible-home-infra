@@ -6,6 +6,5 @@
 
   - name: Upgrade
     apt:
-      name: "*"
-      state: latest
+      upgrade: safe
     become: yes
