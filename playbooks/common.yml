@@ -1,7 +1,8 @@
 ---
-- hosts: park
+- hosts: debian
   become: yes
   roles:
+    - init
     - common
-    - linux-motd
-    - update
+    # - linux-motd
+    # - update
