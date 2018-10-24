@@ -35,6 +35,3 @@
     - bash-completion
     - dnsutils
     - iftop
-
-- name: Upgrade python-pip
-  command: "pip install --upgrade pip"
