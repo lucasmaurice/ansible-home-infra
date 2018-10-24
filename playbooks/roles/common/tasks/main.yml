@@ -4,5 +4,6 @@
       name: debian
       state: absent
       remove: yes
+      force: yes
       
   # - include: base-packages.yml
