@@ -1,0 +1,7 @@
+---
+
+- name: Install guest additions
+  package:
+    name: open-vm-tools
+    state: latest
+

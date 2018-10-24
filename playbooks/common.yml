@@ -6,3 +6,8 @@
     - common
     # - linux-motd
     # - update
+
+- hosts: vm
+  become: yes
+  roles:
+    - vm
