@@ -4,8 +4,8 @@
   roles:
     - init
     - common
-    # - linux-motd
-    # - update
+    - linux-motd
+    - update
 
 - hosts: vm
   become: yes
