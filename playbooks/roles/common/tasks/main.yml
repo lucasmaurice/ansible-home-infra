@@ -6,4 +6,4 @@
       remove: yes
       force: yes
       
-  # - include: base-packages.yml
+  - include: base-packages.yml
