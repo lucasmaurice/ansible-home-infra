@@ -12,12 +12,6 @@
     state: directory
     path: /etc/update-motd.d/
 
-- name: Add fonts to Debian.
-  get_url:
-    url: http://www.figlet.org/fonts/cosmic.flf
-    dest: /opt/
-    mode: 0644
-
 - name: Create the correct template files.
   template:
     src: "{{ item }}"

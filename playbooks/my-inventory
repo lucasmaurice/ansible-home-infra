@@ -4,7 +4,7 @@ vpn
 [vm:children]
 local
 
-[ubuntu:children]
+[debian:children]
 vm
 
 [vpn]

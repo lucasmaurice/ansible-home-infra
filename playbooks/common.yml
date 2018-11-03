@@ -1,19 +1,10 @@
 ---
-- hosts: ubuntu
-  become: yes
-  roles:
-    - init
-    - update
-    - common-ubuntu
-    - linux-motd
-    - update
-
 - hosts: debian
   become: yes
   roles:
     - init
     - update
-    - common-debian
+    - common
     - linux-motd
     - update
 

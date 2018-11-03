@@ -1,0 +1,86 @@
+---
+
+  - name: Install the prerequisite packages for the VPN server (l2tp with ipsec).
+    package:
+        name: "{{ item }}"
+        state: latest
+    with_items:
+        - strongswan
+        - strongswan-plugin-eap-mschapv2
+        - moreutils
+        - iptables-persistent
+
+  - name: Create the destination folder.
+    file:
+        state: directory
+        path: /var/vpn-certs
+
+# - name: Add the routing configuration for route all from vpn to local network.
+#     iptables:
+#         table: nat
+#         chain: POSTROUTING
+#         source: 10.0.1.0/24
+#         jump: MASQUERADE
+
+#   - name: Enable kernel IP packet forwarding.
+#     lineinfile:
+#         path: /etc/sysctl.conf
+#         regexp: '^net.ipv4.ip_forward[ ]{0,1}=[ ]{0,1}'
+#         line: 'net.ipv4.ip_forward=1'
+#         state: present
+
+#   - name: Disable ICP redirects (1/2 - accept).
+#     lineinfile:
+#         path: /etc/sysctl.conf
+#         regexp: '^net.ipv4.conf.all.accept_redirects[ ]{0,1}=[ ]{0,1}'
+#         line: 'net.ipv4.conf.all.accept_redirects=0'
+#         state: present
+
+#   - name: Disable ICP redirects (2/2 - send).
+#     lineinfile:
+#         path: /etc/sysctl.conf
+#         regexp: '^net.ipv4.conf.all.send_redirects[ ]{0,1}=[ ]{0,1}'
+#         line: 'net.ipv4.conf.all.send_redirects=0'
+#         state: present
+
+#   - name: Install xl2tpd config file
+#     template:
+#         src: xl2tpd.conf
+#         dest: /etc/xl2tpd/
+#         owner: root
+#         group: root
+#         mode: 0644
+
+#   - name: Install ppp config file
+#     template:
+#         src: options.xl2tp
+#         dest: /etc/ppp/options.xl2tp
+#         owner: root
+#         group: root
+#         mode: 0644
+
+#   - name: Setup a test user
+#     lineinfile:
+#         path: /etc/ppp/chap-secrets
+#         regexp: '^lucas'
+#         line: lucas * lucas *”
+#         state: present
+
+#   - name: Install IPSec config file
+#     template:
+#         src: ipsec.conf
+#         dest:  /etc/
+#         owner: root
+#         group: root
+#         mode: 0644
+
+#   - name: Install IPSec secret file
+#     template:
+#         src: ipsec.secrets
+#         dest:  /etc/
+#         owner: root
+#         group: root
+#         mode: 0644
+
+
+
