@@ -1,5 +1,5 @@
 ansible_user = ansible
-sudo_user = debian
+sudo_user = install
 ansible_inventory = my-inventory
 
 deploy-init:
