@@ -1,11 +1,29 @@
 ---
+
+  - name: Install ZSH 
+    package: 
+      name: zsh
+      state: latest
+
   - name: Add standard user to sudo group.
     user:
       name: lucas
       state: present
+      shell: /bin/zsh
       comment: "Standard user with sudo for lucas"
       groups: sudo
       append: yes
+
+  - name: Clone oh-my-zsh repo
+    git: 
+      repo: https://github.com/robbyrussell/oh-my-zsh.git
+      dest: /home/lucas/.oh-my-zsh
+ 
+  - name: deploy .zshrc
+    template:
+      src: zshrc
+      dest:  /home/lucas/.zshrc
+      owner: lucas
 
   - name: Add ansible standard user to sudo group.
     user:
