@@ -1,0 +1,26 @@
+---
+
+- name: Install base package
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - git
+    - vim
+    - htop
+    - sudo
+    - gcc
+    - make
+    - autoconf
+    - automake
+    - pkg-config
+    - sysstat
+    - tcpdump
+    - python-dev
+    - net-tools
+    - man
+    - bash-completion
+    - dnsutils

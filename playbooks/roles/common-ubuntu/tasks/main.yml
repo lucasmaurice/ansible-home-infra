@@ -1,0 +1,9 @@
+---
+  - name: Remove default installation user
+    user:
+      name: install
+      state: absent
+      remove: yes
+      force: yes
+      
+  - include: base-packages.yml
