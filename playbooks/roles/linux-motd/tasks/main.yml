@@ -6,7 +6,6 @@
     state: latest
   with_items:
     - lsb-release
-    - figlet
 
 - name: Create the destination folder.
   file:
