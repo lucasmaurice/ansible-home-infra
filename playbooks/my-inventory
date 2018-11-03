@@ -1,8 +1,11 @@
-[park]
-192.168.1.220
+[local:children]
+vpn
 
 [vm:children]
-park
+local
 
-[debian:children]
+[ubuntu:children]
 vm
+
+[vpn]
+192.168.1.220
