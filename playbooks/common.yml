@@ -1,9 +1,19 @@
 ---
+- hosts: ubuntu
+  become: yes
+  roles:
+    - init
+    - update
+    - common-ubuntu
+    - linux-motd
+    - update
+
 - hosts: debian
   become: yes
   roles:
     - init
-    - common
+    - update
+    - common-debian
     - linux-motd
     - update
 
@@ -11,3 +21,8 @@
   become: yes
   roles:
     - vm
+
+- hosts: vpn
+  become: yes
+  roles:
+    - vpn
