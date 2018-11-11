@@ -1,8 +1,16 @@
-[park]
+[vm]
 192.168.1.220
 
-[vm:children]
-park
+[gti210]
+192.168.1.221
+
+[local:children]
+vm
+gti210
 
 [debian:children]
 vm
+gti210
+
+[github:children]
+gti210

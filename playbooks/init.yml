@@ -1,4 +1,4 @@
-- hosts: debian
+- hosts: local
   become: yes
   roles:
   - init

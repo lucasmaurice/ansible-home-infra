@@ -1,4 +1,4 @@
 ---
-- hosts: park
+- hosts: local
   roles:
     - update
