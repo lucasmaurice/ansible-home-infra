@@ -1,0 +1,22 @@
+---
+- include_vars: github_key.yml
+
+- name: Generate new SSH key for ansible user
+  command: ssh-keygen -q -t rsa -f /home/ansible/.ssh/id_rsa -C "" -N ""
+  args:
+    creates: /home/ansible/.ssh/id_rsa
+
+- name: Read SSH public key to authorize
+  shell: cat /home/ansible/.ssh/id_rsa.pub
+  register: ssh_pub_key
+
+- name: Read HOST name
+  shell: hostname
+  register: host_name
+
+- name: Authorize key with GitHub
+  local_action:
+    module: github_key
+    name: 'Ansible automation: {{host_name.stdout}}'
+    token: '{{ github_access_token }}'
+    pubkey: '{{ ssh_pub_key.stdout }}'

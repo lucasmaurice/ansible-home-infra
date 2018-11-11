@@ -11,3 +11,8 @@
   become: yes
   roles:
     - vm
+
+- hosts: github
+  become: no
+  roles:
+    - github
