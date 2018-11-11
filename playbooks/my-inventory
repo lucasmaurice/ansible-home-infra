@@ -1,16 +1,18 @@
-[vm]
+[vpn]
 192.168.1.220
 
 [gti210]
 192.168.1.221
 
+[vm:children]
+vpn
+gti210
+
 [local:children]
 vm
-gti210
 
 [debian:children]
 vm
-gti210
 
 [github:children]
 gti210
