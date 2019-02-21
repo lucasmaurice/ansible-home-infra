@@ -1,8 +1,8 @@
 [all:vars]
 vars_path=inventories/vars
 
-[npm]
-djls-domotic ansible_host=192.168.1.221
+[nodejs]
+djls-domotic
 
 [debian:children]
-npm
+nodejs
