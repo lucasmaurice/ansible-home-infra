@@ -18,15 +18,8 @@ deploy-users-new:
 deploy-users:
 	ansible-playbook -i $(inventory) ansible/users.yml
 
-
-deploy-init:
-	ansible-playbook -i $(inventory) ansible/init.yml --ask-become-pass --ask-pass -u $(sudo_user)
-
 deploy-common:
-	ansible-playbook -i $(inventory) ansible/common.yml -u $(ansible_user)
-
-deploy-update:
-	ansible-playbook -i $(inventory) ansible/update.yml -u $(ansible_user)
-
+	ansible-playbook -i $(inventory) ansible/common.yml
+	
 ping:
 	ansible-playbook -i $(inventory) ansible/ping.yml --user=$(install_user) -k -K
