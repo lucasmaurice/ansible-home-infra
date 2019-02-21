@@ -1,0 +1,4 @@
+---
+- name: Set the system timezone to America/Montreal.
+  timezone:
+    name: America/Montreal

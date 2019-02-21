@@ -1,0 +1,16 @@
+---
+- name: Install vim.
+  package:
+    name: vim
+    state: present
+
+- name: Sensible defaults for VIM.
+  copy:
+    src: vim/vimrc
+    dest: /home/{{ item.username }}/.vimrc
+  loop: '{{ users }}'
+
+- name: Sensible defaults for VIM.
+  copy:
+    src: vim/vimrc
+    dest: /root/.vimrc

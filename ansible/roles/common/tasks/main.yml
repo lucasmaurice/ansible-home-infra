@@ -1,8 +1,7 @@
 ---
-  - name: Remove default installation user
-    user:
-      name: debian
-      state: absent
-      remove: yes
-      
-  # - include: base-packages.yml
+- include: repo-non-free.yml
+- include: backports.yml
+- include: base-packages.yml
+- include: ntp-client.yml
+- include: timezone.yml
+- include: vim.yml

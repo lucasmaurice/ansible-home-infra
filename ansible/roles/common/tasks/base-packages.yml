@@ -1,9 +1,9 @@
 ---
-
-- name: Install base package
+- name: Install base packages
   package:
     name: "{{ item }}"
-    state: latest
+    state: present
+    update_cache: yes 
   with_items:
     - apt-transport-https
     - ca-certificates
@@ -13,6 +13,7 @@
     - htop
     - sudo
     - gnupg2
+    - python-pip
     - python3-pip
     - gcc
     - make
@@ -24,17 +25,14 @@
     - lm-sensors
     - dstat
     - sysstat
+    - snmp
     - mtr
     - ncdu
     - tcpdump
     - python-dev
     - net-tools
     - locate
-    - net-tools
     - man
     - bash-completion
     - dnsutils
     - iftop
-
-- name: Upgrade python-pip
-  command: "pip install --upgrade pip"
