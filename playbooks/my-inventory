@@ -1,8 +1,0 @@
-[park]
-192.168.1.220
-
-[vm:children]
-park
-
-[debian:children]
-vm
