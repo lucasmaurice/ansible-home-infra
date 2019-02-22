@@ -20,9 +20,12 @@ deploy-users:
 
 deploy-common:
 	ansible-playbook -i $(inventory) ansible/common.yml
-	
+
 deploy-nodejs:
 	ansible-playbook -i $(inventory) ansible/nodejs.yml
-	
+
+deploy-db:
+	ansible-playbook -i $(inventory) ansible/db.yml
+
 ping:
 	ansible-playbook -i $(inventory) ansible/ping.yml
