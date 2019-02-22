@@ -18,7 +18,7 @@ mysql_users:
 - name: api
   host: 127.0.0.1
   password: api
-  priv: home.*:USAGE
+  priv: '*.*:ALL'
 
 mysql_user_password: abc
 mysql_root_password: def
