@@ -1,8 +1,14 @@
 [all:vars]
 vars_path=inventories/vars
 
-[nodejs]
+[domotic]
 djls-domotic
+
+[nodejs:children]
+domotic
+
+[db:children]
+domotic
 
 [debian:children]
 nodejs

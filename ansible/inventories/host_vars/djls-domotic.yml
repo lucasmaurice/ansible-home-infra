@@ -1,7 +1,24 @@
 ---
 ansible_host: 192.168.1.221
 nodejs_install_npm_user: "root"
+PRIVATE_INTERFACE: eth0
 
 nodejs_applications:
 - name: domoserv
-  repo: https://github.com/lucasmaurice/environment.git
+  repo: https://github.com/lucasmaurice/domotic_server.git
+
+# Databases.
+mysql_databases:
+- name: home
+  collation: utf8_general_ci
+  encoding: utf8
+
+# Users.
+mysql_users:
+- name: api
+  host: 127.0.0.1
+  password: api
+  priv: home.*:USAGE
+
+mysql_user_password: abc
+mysql_root_password: def
