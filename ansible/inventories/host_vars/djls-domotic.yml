@@ -1,3 +1,7 @@
 ---
 ansible_host: 192.168.1.221
 nodejs_install_npm_user: "root"
+
+nodejs_applications:
+- name: domoserv
+  repo: https://github.com/lucasmaurice/environment.git

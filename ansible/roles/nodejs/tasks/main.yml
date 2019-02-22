@@ -37,4 +37,4 @@
   tags: ['skip_ansible_lint']
 
 - import_tasks: install_application.yml
-  when: nodejs_application is defined
+  when: nodejs_applications is defined
