@@ -1,1 +1,13 @@
 ---
+- name: Clone the code repository.
+  git:
+    repo: "{{ item.repo }}"
+    dest: "/opt/{{ item.name }}"
+    accept_hostkey: yes
+  with_items: "{{ nodejs_applications }}"
+
+- name: Update packages based on package.json to their latest version.
+  npm:
+    path: "/opt/{{ item.name }}"
+    state: latest
+  with_items: "{{ nodejs_applications }}"
