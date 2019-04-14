@@ -20,6 +20,12 @@ deploy-users:
 
 deploy-common:
 	ansible-playbook -i $(inventory) ansible/common.yml
-	
+
+deploy-nodejs:
+	ansible-playbook -i $(inventory) ansible/nodejs.yml --ask-vault-pass
+
+deploy-db:
+	ansible-playbook -i $(inventory) ansible/db.yml --ask-vault-pass
+
 ping:
-	ansible-playbook -i $(inventory) ansible/ping.yml --user=$(install_user) -k -K
+	ansible-playbook -i $(inventory) ansible/ping.yml

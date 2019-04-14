@@ -4,4 +4,3 @@
 - include: base-packages.yml
 - include: ntp-client.yml
 - include: timezone.yml
-- include: vim.yml

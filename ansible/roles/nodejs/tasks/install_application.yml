@@ -1,0 +1,28 @@
+---
+- name: Clone the code repository.
+  git:
+    repo: "{{ item.repo }}"
+    dest: "/opt/{{ item.name }}"
+    accept_hostkey: yes
+  with_items: "{{ nodejs_applications }}"
+
+- name: Update packages based on package.json to their latest version.
+  npm:
+    path: "/opt/{{ item.name }}"
+    state: latest
+  with_items: "{{ nodejs_applications }}"
+
+- name: Add service file.
+  template:
+    src: app.service.j2
+    dest: /lib/systemd/system/{{ item.name }}.service
+    mode: 0755
+  with_items: "{{ nodejs_applications }}"
+
+- name: restart services, also issue daemon-reload to pick up config changes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+    name: "{{ item.name }}"
+  with_items: "{{ nodejs_applications }}"

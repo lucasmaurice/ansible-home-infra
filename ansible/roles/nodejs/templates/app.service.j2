@@ -1,0 +1,18 @@
+[Unit]
+Description={{ item.name }}
+After=network.target
+
+[Service]
+{% for env in item.env %}
+Environment="{{env.name}}={{env.value}}"
+{% endfor %}
+
+User=root
+ExecStart=/usr/bin/node /opt/{{ item.name }}/{{ item.index_file }}
+StandardOutput=file:/var/log/{{ item.name }}.log
+StandardError=file:/var/log/{{ item.name }}_errors.log
+Restart=on-failure
+ 
+[Install]
+WantedBy=multi-user.target
+Alias={{ item.name }}.service
