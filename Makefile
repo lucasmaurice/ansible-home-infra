@@ -1,4 +1,4 @@
-install_user = ansible
+install_user = pi
 inventory = ansible/inventories/inventory
 
 VENV_NAME?=venv
@@ -12,20 +12,20 @@ $(VENV_NAME)/bin/activate: requirements.txt
 	${PYTHON} -m pip install -r requirements.txt
 	touch $(VENV_NAME)/bin/activate
 
-deploy-users-new:
-	ansible-playbook -i $(inventory) ansible/users.yml --user=$(install_user) -k -K
+deploy-users-new: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/users.yml --user=$(install_user) -k -K
 
-deploy-users:
-	ansible-playbook -i $(inventory) ansible/users.yml
+deploy-users: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/users.yml
 
-deploy-common:
-	ansible-playbook -i $(inventory) ansible/common.yml
+deploy-common: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/common.yml
 
-deploy-nodejs:
-	ansible-playbook -i $(inventory) ansible/nodejs.yml --ask-vault-pass
+deploy-nodejs: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/nodejs.yml --ask-vault-pass
 
-deploy-db:
-	ansible-playbook -i $(inventory) ansible/db.yml --ask-vault-pass
+deploy-db: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/db.yml --ask-vault-pass
 
-ping:
-	ansible-playbook -i $(inventory) ansible/ping.yml
+ping: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/ping.yml
