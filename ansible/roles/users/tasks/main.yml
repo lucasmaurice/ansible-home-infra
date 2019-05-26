@@ -7,6 +7,17 @@
     state: present
     shell: /bin/bash
   loop: '{{ users }}'
+  when: ansible_os_family == "Debian"
+
+- name: Create users
+  user:
+    name: "{{ item.username }}"
+    comment: "{{ item.name }}"
+    append: yes
+    state: present
+    shell: /bin/bash
+  loop: '{{ users }}'
+  when: ansible_os_family == "RedHat"
 
 - name: Add keys to users.
   authorized_key:
@@ -21,3 +32,4 @@
     regexp: '^%sudo ALL\='
     line: '%sudo ALL=(ALL) NOPASSWD:ALL'
     validate: 'visudo -cf %s'
+  when: ansible_os_family == "Debian"

@@ -1,4 +1,3 @@
-install_user = pi
 inventory = ansible/inventories/inventory
 
 VENV_NAME?=venv
@@ -13,7 +12,7 @@ $(VENV_NAME)/bin/activate: requirements.txt
 	touch $(VENV_NAME)/bin/activate
 
 deploy-users-new: venv
-	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/users.yml --user=$(install_user) -k -K
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/users-new.yml --user=root -k -K
 
 deploy-users: venv
 	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/users.yml

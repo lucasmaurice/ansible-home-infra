@@ -16,3 +16,6 @@ domotic
 [debian:children]
 nodejs
 omv
+
+[centos]
+djls-test-centos
