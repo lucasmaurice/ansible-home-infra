@@ -1,3 +1,8 @@
+- name: Install dependencies
+  package:
+    name: sudo
+    state: present
+
 - name: Create users
   user:
     name: "{{ item.username }}"
@@ -13,6 +18,7 @@
   user:
     name: "{{ item.username }}"
     comment: "{{ item.name }}"
+    groups: wheel
     append: yes
     state: present
     shell: /bin/bash
@@ -27,9 +33,12 @@
 
 - name: Allow privilege escalation without password.
   lineinfile:
-    dest: /etc/sudoers
+    dest: /etc/sudoers.d/30-{{ item.username }}
+    owner: root
+    group: root
+    mode: 0440
+    line: "{{ item.username }} ALL=(ALL) NOPASSWD:ALL"
     state: present
-    regexp: '^%sudo ALL\='
-    line: '%sudo ALL=(ALL) NOPASSWD:ALL'
+    create: yes
     validate: 'visudo -cf %s'
-  when: ansible_os_family == "Debian"
+  loop: "{{ users }}"
