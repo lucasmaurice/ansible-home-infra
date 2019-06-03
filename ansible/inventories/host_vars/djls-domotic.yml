@@ -1,7 +1,7 @@
 ---
 ansible_host: 192.168.1.221
 nodejs_install_npm_user: "root"
-PRIVATE_INTERFACE: eth0
+MOTD_PRIVATE_INTERFACE: eth0
 
 temp_sql_user: api
 temp_sql_password: !vault |

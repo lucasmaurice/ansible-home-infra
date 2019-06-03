@@ -1,6 +1,6 @@
 ---
 MOTD_CONTACT: sonic@lanets.ca
-MOTD_WELCOME_FONT: banner3
+MOTD_WELCOME_FONT: big
 MOTD_WELCOME: SONIC
 
 users:
