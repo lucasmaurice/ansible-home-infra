@@ -6,3 +6,9 @@
     - linux-motd
     - unattended-upgrade
     - users
+
+- hosts: centos
+  become: yes
+  roles:
+    - linux-motd
+    - users
