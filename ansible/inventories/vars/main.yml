@@ -1,9 +1,1 @@
 ---
-MOTD_CONTACT: sonic@lanets.ca
-MOTD_WELCOME_FONT: big
-MOTD_WELCOME: SONIC
-
-users:
-  - name: Lucas Maurice
-    username: lucas
-    public_keys: https://github.com/lucasmaurice.keys
