@@ -1,12 +1,7 @@
 [all:vars]
 vars_path=inventories/vars
 
-[domotic]
-djls-domotic
-
-[omv]
-djls-fileserver
-
+# Parent groups
 [nodejs:children]
 domotic
 
@@ -16,6 +11,18 @@ domotic
 [debian:children]
 nodejs
 omv
+test
+
+# Services groups
+
+[domotic]
+djls-domotic
+
+[omv]
+djls-fileserver
 
 [centos]
 djls-test-centos
+
+[test]
+djls-test-debian
