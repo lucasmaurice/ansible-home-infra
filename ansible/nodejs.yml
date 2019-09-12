@@ -1,7 +1,5 @@
 ---
 - hosts: nodejs
   become: yes
-  vars_files:
-    - "{{ vars_path }}/users.yml"
   roles:
     - nodejs
