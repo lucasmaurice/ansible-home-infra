@@ -1,6 +1,0 @@
----
-- name: Add the Debian non-free repository.
-  apt_repository:
-    repo: deb http://http.debian.net/debian stretch non-free
-    filename: non-free
-    state: present

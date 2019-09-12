@@ -1,5 +1,0 @@
----
-ntp_default_servers:
-  - tic.nrc.ca
-  - tick.umanitoba.ca
-  - tick.usask.ca

@@ -26,5 +26,8 @@ deploy-nodejs: venv
 deploy-db: venv
 	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/db.yml --ask-vault-pass
 
+deploy-motd2: venv
+	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/motd.yml
+
 ping: venv
 	$(VENV_ACTIVATE) && ansible-playbook -i $(inventory) ansible/ping.yml

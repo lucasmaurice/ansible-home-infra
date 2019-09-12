@@ -1,6 +1,0 @@
----
-- name: Add the Debian backport repository.
-  apt_repository:
-    repo: deb http://http.debian.net/debian stretch-backports main
-    filename: backports
-    state: present

@@ -1,0 +1,11 @@
+# ---
+# - hosts: debian
+#   become: yes
+#   roles:
+#     - linux-motd-2
+
+
+- hosts: all
+  become: yes
+  roles:
+    - linux-motd-2

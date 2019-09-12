@@ -1,2 +1,0 @@
-APT::Periodic::Update-Package-Lists "{{ update_interval }}";
-APT::Periodic::Unattended-Upgrade "{{ update_interval }}";

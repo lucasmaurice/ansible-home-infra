@@ -1,6 +1,0 @@
----
-- include: repo-non-free.yml
-- include: backports.yml
-- include: base-packages.yml
-- include: ntp-client.yml
-- include: timezone.yml
